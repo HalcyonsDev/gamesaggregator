@@ -1,6 +1,7 @@
 package ru.halcyon.telegrambot.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -41,6 +42,7 @@ public class UpdateProcessor {
         }
     }
 
+    @Async
     public void sendRecentNews(List<GameNews> gameNews) {
         for (User user: userService.findAll()) {
             sendNews(gameNews, user.getChatId());

@@ -25,7 +25,7 @@ public class NewsCollectorService {
 
     private final NewsProducer newsProducer;
 
-    @Scheduled(fixedRate =  60 * 1000) // 3 hours
+    @Scheduled(fixedRate =  3 * 60 * 60 * 1000) // 3 hours
     public void collectAndPublishNews() {
         try {
             newsProducer.sendNews(parseNewsFromStopgame().get());
