@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: telegram-bot
+
+  kafka:
+    bootstrap-servers: localhost:29092
+
+  liquibase:
+    enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+    show-sql: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bot
+    username: postgres
+    password: password
+
+server:
+  port: 8083
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+
+bot:
+  username: GamesNewsAggregatorBot
+  token: 7364144319:AAGL_1ZN59pEe37X6eN5B5vv-hxqANFy03M

@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: aggregator-service
+
+  kafka:
+    bootstrap-servers: kafka:9092
+
+  liquibase:
+    enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+    show-sql: true
+
+  datasource:
+    url: jdbc:postgresql://postgres-aggregator:5432/aggregator
+    username: postgres
+    password: password
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+
+server:
+  port: 8080
